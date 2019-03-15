@@ -1,0 +1,37 @@
+var lights = [];
+
+function setup() {
+  createCanvas(400, 400);
+
+  for (var i = 0; i < 10; i++) {
+    var light = {
+      x: random(width),
+      y: height,
+      radius: 5 // the range of the size of bubbles
+    };
+    lights.push(light)
+  }
+}
+
+function mousePressed() {
+  for (i = 0; i < 5; i++){
+  var light = {
+    x: random(width),
+    y: height,
+    radius: random(2,6) 
+  };
+  lights.push(light)
+  } 
+}
+
+function draw() {
+  background(0);
+  noStroke();
+
+  for (var i = 0; i < lights.length; i++) {
+    var light = lights[i];
+
+    ellipse(light.x, light.y, light.radius);
+    light.y -= 1; 
+  }
+}
